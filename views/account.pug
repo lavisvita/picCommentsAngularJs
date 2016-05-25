@@ -1,0 +1,10 @@
+extends layout
+block header
+    div.row
+        div.col-lg-6
+            each pic in pictures
+                div.col-lg-6.col-md-6.col-sm-6.col-xs-6
+                    a(href='/pictures/' + pic.picId)
+                        img(src='/public/img/' + pic.picName, width='300')
+                    a(href='/deletepic/' + pic.picId)
+                        i(class='fa fa-times' aria-hidden='true')

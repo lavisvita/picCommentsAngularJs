@@ -1,0 +1,25 @@
+extends layout
+block header
+    div.col-lg-8
+        each item in picture
+            p
+                span= 'Author: ' + item.postedBy
+            p
+                span= 'Picture title: ' + item.title
+            img(src='/public/img/' + item.picName, width='400')
+            each comment in item.comments
+                p Comment
+                form(method='post' action='/updatecomment/' + item.picId)
+                    p= comment.postedBy
+                    input(type='hidden' name='commentId' value=comment.commentId)
+                    input(type='text' name='commentText' value=comment.text)
+                    input(type='submit' value='update')
+
+
+
+    div.col-lg-4
+        p Add new comment
+        .col-lg-4.col-md-4.col-sm-6
+            form(name='addComment', method='post' action='/addcomment/'+ picture[0].picId)
+                textarea(name='commentText', cols='40', rows='10')
+                input(type='submit', value='Add comment')

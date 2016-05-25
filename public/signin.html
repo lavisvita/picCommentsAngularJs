@@ -1,0 +1,30 @@
+<h1>Sign in</h1>
+<div class="row" ng-controller='signinCtrl'>
+    <ul>
+        <li ng-repeat='link in links'>
+            <a href="#/{{link}}">{{link}}</a>
+        </li>
+    </ul>
+    <div class="col-lg-12">
+        <H3>Sign in</H3>
+    </div>
+    <div class="col-lg-12">
+        <form class="form-horizontal" ng-model="formData" ng-submit="getSigninData(formData)">
+            <div class="form-group">
+                <div class="col-lg-4">
+                    <input id="inputLogin" type="text" ng-model="formData.login" placeholder="Login" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-4">
+                    <input id="inputPassword" type="password" ng-model="formData.password" placeholder="Password" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-4">
+                    <button type="submit"  class="btn btn-primary">Sign in</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+doctype html
+html(lang="en")
+    head
+        title Some title
+        link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/united/bootstrap.min.css')
+        link(rel='stylesheet' href='/public/css/font-awesome/css/font-awesome.min.css')
+        link(rel='stylesheet' href='/public/css/style.css')
+    body(class='container')
+        nav.navbar.navbar-default
+            .container-fluid
+                ul.nav.navbar-nav
+                    li
+                        a(href='/')
+                            | Main
+                    if authorized == true
+                        li
+                            a(href='/pictures')
+                                | Pictures
+                        li
+                            a(href='/addpicture')
+                                | Add Picture
+                if authorized == false
+                    ul.nav.navbar-nav.pull-right
+                        li
+                            a(href='/reg')
+                                | Registration
+                        li
+                            a(href='/signin')
+                                | Signin
+                else if authorized == true
+                    div.pull-right
+                        span= login
+                        ul.nav.navbar-nav
+                            li
+                                a(href='/account')
+                                    | User account
+                            li
+                                a(href='/logout')
+                                    | Log out
+        block header
